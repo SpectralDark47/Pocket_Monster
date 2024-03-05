@@ -10,6 +10,7 @@
         android:id="@+id/score_txt"
         android:layout_width="139dp"
         android:layout_height="43dp"
+        android:gravity="center"
         android:text="Score: 0"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -44,7 +45,10 @@
         android:id="@+id/title_txt"
         android:layout_width="411dp"
         android:layout_height="68dp"
+        android:gravity="center"
         android:text="Who's That Pokemon?"
+        android:textColor="#000000"
+        android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="@+id/toolbar"
         app:layout_constraintStart_toStartOf="@+id/toolbar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -61,48 +65,48 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="224dp"
+        android:layout_height="100dp"
         app:layout_constraintBottom_toTopOf="@+id/score_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" >
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton5"
-                android:layout_width="wrap_content"
+                android:id="@+id/radioButton1"
+                android:layout_width="113dp"
                 android:layout_height="wrap_content"
                 android:checked="false"
-                android:text="RadioButton" />
+                android:text="Alakazam" />
 
             <RadioButton
-                android:id="@+id/radioButton6"
-                android:layout_width="match_parent"
+                android:id="@+id/radioButton2"
+                android:layout_width="108dp"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Beedrill" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/radioButton7"
-                android:layout_width="wrap_content"
+                android:id="@+id/radioButton3"
+                android:layout_width="113dp"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Blastoise" />
 
             <RadioButton
-                android:id="@+id/radioButton8"
-                android:layout_width="match_parent"
+                android:id="@+id/radioButton4"
+                android:layout_width="109dp"
                 android:layout_height="wrap_content"
-                android:text="RadioButton" />
+                android:text="Bulbasaur" />
         </LinearLayout>
 
     </RadioGroup>
