@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.TextView
 
+    data class PkmnImages(val silhId: Int, val clearId: Int, val pkmnName: String);
 
 class MainActivity : AppCompatActivity() {
     val Alakazam = Pkmn(R.drawable.alakazam_silh, "Alakazam")
@@ -32,14 +33,33 @@ class MainActivity : AppCompatActivity() {
     val Zapdos = Pkmn(R.drawable.zapdos_silh, "Zapdos")
     var score: Int = 0
     val currentPkmn = Alakazam
+
+    private var pkmnImages = mutableListOf<PkmnImages>();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.vileplume_silh,
+                R.drawable.vileplume_silh,
+                "Vileplume")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.zapdos_silh,
+                R.drawable.zapdos_silh,
+                "Zapdos")
+        );
+
         setPokemon()
     }
 
 
+
     fun setPokemon(){
+        fun PkmnImages(silhId,clearId,pkmnName).shuffle();
+
         val image = findViewById<ImageView>(R.id.imageView)
         image.setImageResource(currentPkmn.resourceId)
     }
