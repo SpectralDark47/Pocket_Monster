@@ -41,14 +41,122 @@ class MainActivity : AppCompatActivity() {
 
         pkmnImages.add(
             PkmnImages(
+                R.drawable.alakazam_silh,
+                R.drawable.alakazam_clear,
+                "Alakazam")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.beedrill_silh,
+                R.drawable.beedrill_clear,
+                "Beedrill")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.blastoise_silh,
+                R.drawable.blastoise_clear,
+                "Blastoise")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.bulbasaur_silh,
+                R.drawable.bulbasaur_clear,
+                "Bulbasaur")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.charmeleon_silh,
+                R.drawable.charmeleon_clear,
+                "Charmeleon")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.dugtrio_silh,
+                R.drawable.dugtrio_clear,
+                "Dugtrio")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.exeggutor_silh,
+                R.drawable.exeggutor_clear,
+                "Exeggutor")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.geodude_silh,
+                R.drawable.geodude_clear,
+                "Geodude")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.golbat_silh,
+                R.drawable.golbat_clear,
+                "Golbat")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.haunter_silh,
+                R.drawable.haunter_clear,
+                "Haunter")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.jigglypuff_silh,
+                R.drawable.jigglypuff_clear,
+                "Jigglypuff")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.jolteon_silh,
+                R.drawable.jolteon_clear,
+                "Jolteon")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.koffing_silh,
+                R.drawable.koffing_clear,
+                "Koffing")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.mew_silh,
+                R.drawable.mew_clear,
+                "Mew")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.mewtwo_silh,
+                R.drawable.mewtwo_clear,
+                "Mewtwo")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.ninetales_silh,
+                R.drawable.ninetales_clear,
+                "Ninetales")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.pikachu_silh,
+                R.drawable.pikachu_clear,
+                "Pikachu")
+        );
+        pkmnImages.add(
+            PkmnImages(
+                R.drawable.rhydon_silh,
+                R.drawable.rhydon_clear,
+                "Rhydon")
+        );
+        pkmnImages.add(
+            PkmnImages(
                 R.drawable.vileplume_silh,
-                R.drawable.vileplume_silh,
+                R.drawable.vileplume_clear,
                 "Vileplume")
         );
         pkmnImages.add(
             PkmnImages(
                 R.drawable.zapdos_silh,
-                R.drawable.zapdos_silh,
+                R.drawable.zapdos_clear,
                 "Zapdos")
         );
 
@@ -58,10 +166,21 @@ class MainActivity : AppCompatActivity() {
 
 
     fun setPokemon(){
-        fun PkmnImages(silhId,clearId,pkmnName).shuffle();
+        pkmnImages.shuffle();
 
+        //val currentPkmn = pkmnImages[0].silhId;
+        //Setting the image as the first image in the scrambled list
         val image = findViewById<ImageView>(R.id.imageView)
-        image.setImageResource(currentPkmn.resourceId)
+        image.setImageResource(pkmnImages[0].silhId)
+        //Setting the buttons as the first 4 names of the scrambled list
+        val a = findViewById<RadioButton>(R.id.radioButton1)
+        a.text = (pkmnImages[0].pkmnName);
+        val b = findViewById<RadioButton>(R.id.radioButton2)
+        b.text = (pkmnImages[1].pkmnName);
+        val c = findViewById<RadioButton>(R.id.radioButton3)
+        c.text = (pkmnImages[2].pkmnName);
+        val d = findViewById<RadioButton>(R.id.radioButton4)
+        d.text = (pkmnImages[3].pkmnName);
     }
     fun submitOnClick(view: View){
         val scoreTxt = findViewById<TextView>(R.id.score_txt)
@@ -71,14 +190,22 @@ class MainActivity : AppCompatActivity() {
         val c = findViewById<RadioButton>(R.id.radioButton3)
         val d = findViewById<RadioButton>(R.id.radioButton4)
 
-        if (a.isChecked == true && a.text == currentPkmn.name){
-            score++
-            scoreTxt.setText("Score: " + score)
-        }
         if (button.getText() == "Submit"){
+            if (a.isChecked == true && a.text == pkmnImages[0].pkmnName){
+                score++
+                scoreTxt.setText("Score: " + score)
+            }
             button.setText("Next")
+            val image = findViewById<ImageView>(R.id.imageView)
+            image.setImageResource(pkmnImages[0].clearId)
+
         } else if (button.getText() == "Next"){
             button.setText("Submit")
+            a.isChecked = false;
+            b.isChecked = false;
+            c.isChecked = false;
+            d.isChecked = false;
+            setPokemon()
         }
 
     }
